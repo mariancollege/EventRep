@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="eventDB.sqlite3" uuid="b43e5849-fdf3-465c-9da9-742b7b889dab">
+    <data-source source="LOCAL" name="eventDB.sqlite3" uuid="24e80d72-d191-4651-aa51-cd01eb86c30a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
@@ -9,14 +9,6 @@
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="Django default" uuid="8a762bc0-8f06-47b9-8a5e-fa4571f58bb0">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/EventPicker/settings.py</remarks>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/eventDB.sqlite3</jdbc-url>
     </data-source>
   </component>
 </project>
