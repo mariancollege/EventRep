@@ -1,0 +1,298 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Forms</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="{% static 'css/font-face.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-5/css/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'vendor/bootstrap-4.1/bootstrap.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'vendor/animsition/animsition.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/wow/animate.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/slick/slick.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" media="all">
+{#  <script>#}
+{#                                    alert('{{message}}');#}
+{#                                </script>#}
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+{#        <!-- HEADER MOBILE-->#}
+        <header class="header-desktop" >
+                <div class="section__content section__content--p30" >
+                    <div class="container-fluid" >
+                        <div class="header-wrap" >
+                            < <div class="col-md-12">
+
+                                <div class="overview-wrap">
+                                    <div class="overview-wrap">
+                                    <h2 class="title-1"></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </header>
+
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <label style="font-size: xx-large">EventPicker</label>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+
+                        <li>
+                            <a href="/"><i class="fa fa-home"></i> Home</a>
+                        </li>
+                        <li>
+                            <a href="/event"><i class=" fa fa-home"></i>
+{#                                <i class="fas fa-chart-bar"></i>#}
+                                Events</a>
+                        </li>
+                        <li>
+                            <a href="form.html"><i class="fa fa-phone"></i>
+{#                                <i class="far fa-check-square"></i>#}
+                                Contact</a>
+                        </li>
+                        <li>
+                            <a href="typo.html"><i class="fa fa-users"></i>
+{#                                <i class="far fa-check-square"></i>#}
+                                About Us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+
+                        <div class="au-card m-b-30">
+                            <h3 class="title-2 m-b-40">Registration</h3>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        Enter your details here
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                            <div class="row form-group">
+                                          <br>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Register number*</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="registerno" name="registerno" placeholder="Enter your register number" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">Name*</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="uname" name="uname" placeholder="Enter your name" class="form-control">
+
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">College*</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="college" name="college" placeholder="Enter your college name" class="form-control">
+                                                    <datalist id="college">
+                                                        <option value="Marian College Kuttikkanam"></option>
+                                                    </datalist>
+{#                                                    <input type="text" id="email-input" name="email-input" placeholder="Enter your college name" class="form-control">#}
+
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Department*</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="dept" name="department" placeholder="Enter your department" class="form-control">
+                                                    <datalist id="dept">
+                                                        <option value="Computer application"></option>
+                                                    </datalist>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Course*</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="course" name="course" placeholder="Enter your course" class="form-control">
+                                                    <datalist id="course">
+                                                        <option value="MCA"></option>
+                                                    </datalist>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Year of passout*</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="yop" name="yop" placeholder="When your course completed" class="form-control">
+                                                    <datalist id="yop">
+                                                        <option value="2019"></option>
+                                                    </datalist>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label class=" form-control-label">Gender*</label>
+                                                </div>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check-inline form-check">
+                                                        <label for="inline-radio1" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio1" name="male" value="option1" class="form-check-input">Male <label></label>
+                                                        </label>
+                                                        <label for="inline-radio2" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio2" name="female" value="option2" class="form-check-input">Female <label></label>
+                                                        </label>
+                                                        <label for="inline-radio3" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio3" name="other" value="option3" class="form-check-input">Other <label></label>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="file-input" class=" form-control-label">Upload photo</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="file" id="file-input" name="photo" class="form-control-file">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">Contact Number</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="contactno" name="contactno" placeholder="Enter your contact number" class="form-control">
+
+                                                </div>
+                                            </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" class="form-inline">
+                                            <div class="form-group">
+
+                                                <label for="exampleInputName2" class="pr-1  form-control-label">Email*</label>
+                                                <input type="email" name="txtemail" id="exampleInputName2" placeholder="Enter your email id" required="" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail2" class="px-1  form-control-label" >Password*</label>
+                                                <input type="password" name="password" id="exampleInputEmail2" placeholder="Enter a password" required="" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail2" class="px-1  form-control-label">Conform Password*</label>
+                                                <input type="password" id="exampleInputEmail2" name="txtpassword" placeholder="Re-enter your password" required="" class="form-control">
+                                            </div>
+{#                                        </div>#}
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        </button>
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Reset
+                                        </button>
+                                        </form>
+                                        </div>
+                                        </form>
+                                    </div>
+{#                                    <div class="card-footer">#}
+{#                                        <button type="submit" class="btn btn-primary btn-sm" onclick="location.href='/log'">#}
+{#                                            <i class="fa fa-dot-circle-o"></i> Submit#}
+{#                                        </button>#}
+{#                                        <button type="reset" class="btn btn-danger btn-sm">#}
+{#                                            <i class="fa fa-ban"></i> Reset#}
+{#                                        </button>#}
+{#                                    </div>#}
+                                </div>
+                                <div class="card">
+
+
+                                </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2019 PG Department of computer Applications. All rights reserved.<a href="https://www.facebook.com/ignitemarian/?eid=ARD7OH16Kft2MzAtErhhVCa1Dz62zOSN1wwy8qUrby0zk2gGCEPH5lplm8YhjXfw8zWLPT3nyTvc3ZA3">MATRIX</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{% static 'vendor/bootstrap-4.1/popper.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-4.1/bootstrap.min.js' %}"></script>
+    <!-- Vendor JS       -->
+    <script src="{% static 'vendor/slick/slick.min.js' %}">
+    </script>
+    <script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+    <script src="{% static 'vendor/animsition/animsition.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}">
+    </script>
+    <script src="{% static 'vendor/counter-up/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'vendor/counter-up/jquery.counterup.min.js' %}">
+    </script>
+    <script src="{% static 'vendor/circle-progress/circle-progress.min.js' %}"></script>
+    <script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'vendor/chartjs/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/select2/select2.min.js' %}">
+    </script>
+
+    <!-- Main JS-->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
+<!-- end document-->
