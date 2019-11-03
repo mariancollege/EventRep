@@ -11,7 +11,7 @@ from EventApp import forms
 
 
 class User(models.Model):
-    username = models.TextField()
+    username = models.TextField(unique=True)
     password = models.TextField()
     name = models.TextField()
     regno = models.TextField()
@@ -57,3 +57,7 @@ class Admin(models.Model):
     department = models.TextField()
     descreption = models.TextField()
     brochure = models.ImageField()
+
+class User2(models.Model):
+    username2 = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
+    eventname = models.CharField(max_length=25)
