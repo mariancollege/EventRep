@@ -47,7 +47,7 @@ class User(models.Model):
         pass
 
 
-class addmin(models.Model):
+class Admin(models.Model):
     eventid = models.TextField(primary_key=True)
     eventname = models.CharField(max_length=25)
     venue = models.TextField()
