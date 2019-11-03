@@ -2,19 +2,23 @@
 
 from django.shortcuts import render, render_to_response
 from EventApp.models import User
+from django.http import HttpResponse
 # Create your views here.
 
-
+def testttable(request):
+    return render(request,'enduser/testttable.html', context={'data': User.objects.all()})
 def log(request):
     if request.method == "POST":
         u = request.POST['txtemail']
         p = request.POST['txtpassword']
         if User.objects.all().filter(username=u).filter(password=p).exists():
-            return render_to_response('enduser/event.html', {'message': 'Login Successfull'})
-        else:
-            return render_to_response('enduser/log.html', {'message': 'Incorrect Email or Password!'})
-    return render(request, 'enduser/log.html')
 
+            return render_to_response('enduser/event.html', {'loginmessage': ' '})
+        else:
+            return render(request, 'enduser/log.html', context={'loginmessage': 'Incorrect Email or Password!'})
+    if request.method == "GET":
+        return render_to_response('enduser/log.html', {'loginmessage': ' '})
+    return render_to_response('enduser/log.html', {'loginmessage': ' '})
 
 
 

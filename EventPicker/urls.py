@@ -30,5 +30,6 @@ urlpatterns = [
     path('addevent/', views.addevent, name='addevent'),
     path('editevent/', views.editevent, name='editevent'),
     path('viewevent/', views.viewevent, name='viewevent'),
+    path('testttable/', views.testttable, name='testttable'),
 ]
 # + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

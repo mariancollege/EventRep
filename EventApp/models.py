@@ -15,12 +15,12 @@ class User(models.Model):
     password = models.TextField()
     name = models.TextField()
     regno = models.TextField()
-    collegeid = models.TextField(default="marian")
+    collegeid = models.TextField()
     departmentid = models.TextField()
-    courseid = models.TextField(default="001mn")
+    courseid = models.TextField()
     # gender = models.CharField(max_length=200)
     # photo = models.ImageField(upload_to='media/')
-    contactno =  models.IntegerField(default="0000")
+    contactno = models.IntegerField()
     yop = models.IntegerField()
 
     def __init__(self, *args, **kwargs):

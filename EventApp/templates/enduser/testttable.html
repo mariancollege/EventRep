@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titletable</title>
+
+</head>
+<body>
+<table border="5" cellpadding="20" align="center" >
+    <tr bgcolor="#faebd7">
+        <th>id</th>
+        <th>eMAIL</th>
+        <th>password</th>
+        <th>name</th>
+        <th>regno</th>
+        <th>collegeid</th>
+        <th>dept</th>
+        <th>courseid</th>
+        <th>contactno</th>
+        <th>yop</th>
+    </tr>
+    {% for item in data %}
+    <tr>
+        <td>{{ item.id}}</td>
+        <td>{{ item.username}}</td>
+        <td>{{ item.password}}</td>
+        <td>{{ item.name}}</td>
+        <td>{{ item.regno}}</td>
+        <td>{{ item.collegeid}}</td>
+        <td>{{ item.departmentid}}</td>
+        <td>{{ item.courseid}}</td>
+        <td>{{ item.contactno}}</td>
+        <td>{{ item.yop}}</td>
+     {% if item.username == "a@a"%}
+     {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

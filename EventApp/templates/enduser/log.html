@@ -33,10 +33,6 @@
 
     <!-- Main CSS-->
     <link href="{% static 'css/theme.css' %}" rel="stylesheet" media="all">
-
-{#    <script>#}
-{#       alert('{{message}}');#}
-{#    </script>#}
 </head>
 
 <body class="animsition">
@@ -94,7 +90,8 @@
                                 <div class="form-group">
                                     <label>Password</label>
                                     <input class="au-input au-input--full" type="password" name="txtpassword" placeholder="Password">
-
+                                    <br><br>
+                                    <label><font color="red"> {{ loginmessage }} </font></label>
                                 </div>
                                 <br>
                                 <div class="login-checkbox">
