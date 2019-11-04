@@ -1,7 +1,7 @@
 
 
 from django.shortcuts import render, render_to_response
-from EventApp.models import User
+from EventApp.models import *
 from django.http import HttpResponse
 # Create your views here.
 
@@ -33,6 +33,8 @@ def forget(request):
 def event(request):
     return render(request, 'enduser/event.html')
 
+# gender= models.CharField(widget=models.RadioSelect(name))
+
 
 def regis(request):
     if request.method == "POST":
@@ -44,12 +46,12 @@ def regis(request):
         collegee=request.POST['college']
         department=request.POST['department']
         coursee=request.POST['course']
-        # genderr=request.POST['gender']
+        genderr=request.POST['option1']
         # photoo=request.POST['photo']
         contacto=request.POST['contactno']
         yop=request.POST['yop']
         if password1 == password2:
-            User.objects.get_or_create(username=email,password=password2,regno=uregno,name=uname,collegeid=collegee,departmentid=department,courseid=coursee,contactno=int(contacto),yop=int(yop))
+            User.objects.get_or_create(username=email,password=password2,regno=uregno,gender=genderr,name=uname,collegeid=collegee,departmentid=department,courseid=coursee,contactno=int(contacto),yop=int(yop))
             return render_to_response('enduser/event.html',{'message':'Registration Successfull'})
         else:
             return render_to_response(request, 'enduser/registration.html',{'message':'Incorrect username or password'})
@@ -58,21 +60,19 @@ def regis(request):
 
 def addevent(request):
     if request.method == "POST":
-        ename=request.POST['en']
-        evenue=request.POST['venue']
-        edate=request.POST['venue']
-        eregfee=request.POST['regfee']
-        etpm=request.POST['tpm']
-        # edepartment=request.POST['department']
-        edescreption=request.POST['descreption']
-        # ebrochure=request.POST['brochure']
-        if User.objects.all().exists():
-            User.objects.get_or_create(venue=evenue,date=edate,regfee=eregfee,tpm=etpm,descreption=edescreption,eventname=ename)
-            return render_to_response(request, 'admin/viewevent.html',{'message':'Event uploaded sucessfully'})
-        else:
-            return render_to_response(request, 'admin/addevent',{'messge':'Some fields are missing'})
+        eename=request.POST.get("eeventname",default='hh')
+        eevenue=request.POST.get('evenue')
+        eedate=request.POST.get('edate')
+        eeregfee=request.POST.get('eregfee')
+        eetpm=request.POST.get('etpm')
+        eedepartment=request.POST.get('edepartment')
+        eedescreption=request.POST.get('edescreption')
+        eebrochure=request.POST.get('ebrochure')
+        Admin.objects.get_or_create(eventname=eename,venue=eevenue,ddate=eedate,regfee=eeregfee,tpm=eetpm,department=eedepartment,descreption=eedescreption,brochure=eebrochure)
+        return render(request,'admin/viewevent.html')
+    # else:
+    #     return render_to_response(request, 'admin/addevent',{'messge':'Some fields are missing'})
     return render(request, 'admin/addevent.html')
-
 
 def editevent(request):
     return render(request, 'admin/editevent.html')

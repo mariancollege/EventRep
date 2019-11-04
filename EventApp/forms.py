@@ -7,7 +7,6 @@ gchoice=[
     ('other','Other')
 ]
 
-
 # class Users(forms.ModelForm):
 #     class Meta:
 #         model=User

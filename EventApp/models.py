@@ -10,6 +10,7 @@ from django.db import models
 from EventApp import forms
 
 
+
 class User(models.Model):
     username = models.TextField(unique=True)
     password = models.TextField()
@@ -18,6 +19,8 @@ class User(models.Model):
     collegeid = models.TextField()
     departmentid = models.TextField()
     courseid = models.TextField()
+    gender= models.CharField(max_length=20)
+
     # gender = models.CharField(max_length=200)
     # photo = models.ImageField(upload_to='media/')
     contactno = models.IntegerField()
@@ -48,15 +51,19 @@ class User(models.Model):
 
 
 class Admin(models.Model):
-    eventid = models.TextField(primary_key=True)
-    eventname = models.CharField(max_length=25)
-    venue = models.TextField()
-    date = models.DateField()
-    regfee = models.IntegerField()
-    tpm = models.IntegerField()
-    department = models.TextField()
-    descreption = models.TextField()
-    brochure = models.ImageField()
+    eventid = models.IntegerField(primary_key=True)
+    eventname = models.CharField(max_length=25,default='sss')
+    venue = models.TextField(default='sss')
+    ddate = models.DateField(default='sss')
+    regfee = models.IntegerField(default=123)
+    tpm = models.IntegerField(default=127)
+    department = models.CharField(max_length=200,default='sss')
+    descreption = models.TextField(default='sss')
+    brochure = models.ImageField(default='sss')
+
+class department(models.Model):
+    did=models.TextField(primary_key=True)
+    cdept=models.CharField(max_length=200)
 
 class User2(models.Model):
     username2 = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
