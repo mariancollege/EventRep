@@ -18,10 +18,11 @@
         <th>courseid</th>
         <th>contactno</th>
         <th>yop</th>
+        <th>Event name</th>
     </tr>
     {% for item in data %}
     <tr>
-        <td>{{ item.id}}</td>
+        <td>{{ item.id }}</td>
         <td>{{ item.username}}</td>
         <td>{{ item.password}}</td>
         <td>{{ item.name}}</td>
@@ -31,8 +32,7 @@
         <td>{{ item.courseid}}</td>
         <td>{{ item.contactno}}</td>
         <td>{{ item.yop}}</td>
-     {% if item.username == "a@a"%}
-     {% endif %}
+        <td>{{ item.eventname }}</td>
     </tr>
     {% endfor %}
 </table>

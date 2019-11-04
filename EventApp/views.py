@@ -3,10 +3,13 @@
 from django.shortcuts import render, render_to_response
 from EventApp.models import *
 from django.http import HttpResponse
-# Create your views here.
+
 
 def testttable(request):
-    return render(request,'enduser/testttable.html', context={'data': User.objects.all()})
+    obj=User2.objects.raw("select * from EventApp_user inner join EventApp_user2 on EventApp_user.username=EventApp_user2.username2_id")
+    return render(request, 'enduser/testttable.html', context={'data': obj})
+
+
 def log(request):
     if request.method == "POST":
         u = request.POST['txtemail']
