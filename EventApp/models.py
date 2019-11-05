@@ -1,12 +1,15 @@
 import os
 import urllib
 from unittest import result
+from datetime import  date
 
+import django
 from django.core.files import File
 from django.db import models
 
 
 # Create your models here.
+
 from EventApp import forms
 
 class months(models.Model):
@@ -30,28 +33,17 @@ class User(models.Model):
 
     # gender = models.CharField(max_length=200)
     # photo = models.ImageField(upload_to='media/')
-    contactno = models.IntegerField()
-    yop = models.IntegerField()
+    # contactno = models.IntegerField(default=00)
+    edate=models.DateField((date),default=date.today())
+    yop = models.IntegerField(blank=True, null=True)
     #
     # def __init__(self, *args, **kwargs):
     #     super().__init__(*args, **kwargs)
     #     self.imagefile = None
     #     self.url = None
 
-    def cache(self):
-        if self.url and not self.photo:
-            result = urllib.urlretrieve(self.url)
-            self.photo.save(
-                os.path.basename(self.url),
-                File(open(result[0], 'rb'))
-                )
-            self.save()
-
     def __str__(self):
         return self.username
-
-    def __str__(self):
-        return self.str(self.imagefile)
 
     def str(self, imagefile):
         pass
@@ -68,6 +60,7 @@ class Admin(models.Model):
     brochure = models.ImageField()
     eventcategory=models.TextField()
     parti=models.IntegerField()
+    edate=models.DateField(default=date.today())
     # doe=models.DateField(max_length=14)
 
 
@@ -75,6 +68,3 @@ class departmentn(models.Model):
     did=models.TextField(primary_key=True)
     cdept=models.CharField(max_length=200)
 
-class User2(models.Model):
-    username2 = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
-    eventname = models.CharField(max_length=25)

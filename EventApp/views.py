@@ -99,13 +99,13 @@ def addevent(request):
         eetpm=request.POST.get('etpm')
         eedepartment=request.POST.get('edepartment')
         eedescreption=request.POST.get('edescreption')
-        eebrochure=request.POST.get('ebrochure')
+        # eebrochure=request.POST.get('ebrochure')
         ecat=request.POST.get('ecategory')
         nop=request.POST.get('eparti')
         # Admin.objects.get_or_create(eventname=eename, venue=eevenue)
 
-        Admin.objects.get_or_create(eventname=eename,venue=eevenue,ddate=eedate,regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop)
-        return render(request, 'admin/templates/home.html')
+        Admin.objects.get_or_create(eventname=eename,venue=eevenue,edate=date.today(),regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop)
+        return render(request, 'admin/home.html')
 
     return render(request, 'admin/addevent.html')
 
