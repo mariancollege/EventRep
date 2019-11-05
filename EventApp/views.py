@@ -113,3 +113,10 @@ def editevent(request):
     ob=Admin.objects.all()
     return render(request, 'admin/editevent.html',context={'data':ob})
 
+def about(request):
+    return render(request,'enduser/about.html')
+
+def contact(request):
+    return render(request,'enduser/contact.html')
+
+

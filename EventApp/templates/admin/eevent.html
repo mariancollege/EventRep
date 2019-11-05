@@ -115,80 +115,29 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <form method="GET">
-                {% for item in data %}
 
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="table-data__tool">
-                                <div class="table-data__tool-left">
-                                    <div class="rs-select2--light rs-select2--md">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">Departments</option>
-                                            {% for item in data1 %}
-                                            <option value="">{{ item.cdept }}</option>
-                                                {% endfor %}
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Months</option>
-                                            {% for item in data2 %}
-                                            <option value="">{{ item.mname }}</option>
-                                                {% endfor %}
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Week</option>
-                                            {% for item in data3 %}
-                                            <option value="">{{ item.wname }}</option>
-                                                {% endfor %}
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
 
-                                </div>
-                                <div class="table-data__tool-right">
-                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                       Search</button>
-                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                        <button type="button" class="btn btn-outline-danger" onclick="">Clear all filters</button>
-
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                        {% for item in data %}
                             <div class="au-card m-b-30">
 
-
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Mini Hackathon</h3>
+                                        <h3 class="title-2 m-b-40">{{item.eventname}}</h3>
                                          <div class="card">
                                             <img class="card-img-top" src="{% static 'images/bg-title-01.jpg' %}" alt="Card image cap">
                                              <div class="card-body">
-                                                 <h4 class="card-title mb-3">Mini Hackathon</h4>
-                                                 <p class="card-text">We the PG Department of computer Applications conducted a Mini Hackathon on 30th SEPTEMBER 2019</p>
+                                                 <p class="card-text">{{item.descreption}}</p>
                                              </div>
 
                                              <div class="card-body card-block">
                                                 <div class="table-responsive">
-{#                                                <form method="GET">#}
 
                                                      <table class="table table-top-campaign">
 
-{#                                                         <tbody>#}
-{#                                                         {% for item in data %}#}
                                                             <tr>
-
-{#                                                                {% for item in data %}#}
                                                                  <td>1. Event name</td>
                                                                  <td>{{item.eventid}}</td>
-{#                                                                {% endfor %}#}
                                                             </tr>
 
                                                          <tr>
@@ -197,15 +146,15 @@
                                                 </tr>
                                                 <tr>
                                                     <td>3. Date</td>
-                                                    <td>----</td>
+                                                    <td>{{item.edate}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>4.Event type</td>
-                                                    <td>------</td>
+                                                    <td>{{item.eventcategory}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>5.No of participants</td>
-                                                    <td>-------</td>
+                                                    <td>{{item.parti}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>6. Registration fee</td>
@@ -219,39 +168,33 @@
                                                     <td>8. Organaized by</td>
                                                     <td>{{item.ddepartment}}</td>
                                                 </tr>
-                                                 <tr>
-                                                    <td>9. About the event</td>
-                                                    <td><text name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{item.descreption}}</text></td>
-                                                 </tr>
-{#                                                         </tbody>#}
-
-
-{#                                                {% endfor %}#}
                                                      </table>
 
-{#                                                 </form>#}
                                                 </div>
                                              </div>
 
 
                                          </div>
-                                    </div>
-                                <button onclick="location.href='/log'" class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                        Register this event</button>
 
+                                    </div>
+                                <a href="editevent.html">
+                                <button onclick="location.href='/editevent'" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        Edit</button>
+                                </a>
                                 </div>
+
                         </div>
-                        <div class="row">
+ {% endfor %}
+                    </div>
+                </form>
+                </div>
+            <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
                                     <p>Copyright © 2019 PG Department of computer Applications. All rights reserved.<a href="https://www.facebook.com/ignitemarian/?eid=ARD7OH16Kft2MzAtErhhVCa1Dz62zOSN1wwy8qUrby0zk2gGCEPH5lplm8YhjXfw8zWLPT3nyTvc3ZA3">MATRIX</a>.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            {% endfor %}
-             </form>
             </div>
             <!-- END MAIN CONTENT-->
         </div>
