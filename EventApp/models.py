@@ -33,7 +33,7 @@ class User(models.Model):
 
     # gender = models.CharField(max_length=200)
     # photo = models.ImageField(upload_to='media/')
-    # contactno = models.IntegerField(default=00)
+    contactno = models.IntegerField()
     edate=models.DateField((date),default=date.today())
     yop = models.IntegerField(blank=True, null=True)
     #

@@ -72,7 +72,6 @@ def regis(request):
         department=request.POST['department']
         coursee=request.POST['course']
         genderr=request.POST['option1']
-
         contacto=request.POST['contactno']
         yop=request.POST['yop']
 
@@ -118,5 +117,9 @@ def about(request):
 
 def contact(request):
     return render(request,'enduser/contact.html')
+
+def candidate_view(request):
+    ob=User.objects.all()
+    return render(request,'admin/candidate_view.html',context={'data':ob})
 
 

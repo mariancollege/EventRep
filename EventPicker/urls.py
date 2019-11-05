@@ -35,6 +35,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
+    path('candidate_view', views.candidate_view, name='candidate_view'),
 ]
 urlpatterns+= static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
