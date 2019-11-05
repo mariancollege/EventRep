@@ -4,14 +4,19 @@ from django.shortcuts import render, render_to_response
 from EventApp.models import *
 # from .forms import PostForm
 from django.http import HttpResponse
-# Create your views here.
+
 
 def testttable(request):
+<<<<<<< HEAD
     return render(request,'enduser/testttable.html', context={'data': User.objects.all()})
 
 
 def eevent(request):
     return render(request,'admin/eevent.html')
+=======
+    obj=User2.objects.raw("select * from EventApp_user inner join EventApp_user2 on EventApp_user.username=EventApp_user2.username2_id")
+    return render(request, 'enduser/testttable.html', context={'data': obj})
+>>>>>>> 298ed13f7d20e622c234eeda8b95ab7f60a70e48
 
 
 def log(request):

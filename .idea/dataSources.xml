@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="eventDB.sqlite3" uuid="fcce35a1-4aa5-424e-92ba-f1e9ca9c0b77">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/eventDB.sqlite3</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="Django default" uuid="845702ef-1213-409c-a050-906c3d96fd79">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -14,6 +8,15 @@
       <remarks>$PROJECT_DIR$/EventPicker/settings.py</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/eventDB.sqlite3</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="eventDB.sqlite3" uuid="46db0ef9-8138-430c-a4d0-d446e2210e08">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/eventDB.sqlite3</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
