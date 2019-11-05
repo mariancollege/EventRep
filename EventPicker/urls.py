@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.template.context_processors import static
-from django.urls import path
+from django.urls import path, include
 from  EventApp import views
 from EventPicker import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import *
+from django.conf import settings
 
 urlpatterns = [
+    path('', include('social_django.urls', namespace='index')),
+    path('logout/', views.logout_google, name='logout_google'),
     path('admin/', admin.site.urls),
     path('log/', views.log, name='log'),
     path('', views.index, name='index'),

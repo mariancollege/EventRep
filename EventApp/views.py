@@ -1,6 +1,8 @@
 
 
 from django.shortcuts import render, render_to_response
+from django.template import RequestContext
+from django.contrib.auth import logout as auth_logout
 from EventApp.models import *
 # from .forms import PostForm
 from django.http import HttpResponse
@@ -18,8 +20,17 @@ def eevent(request):
     return render(request, 'admin/eevent.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3})
 
 def testttable(request):
-    obj=User2.objects.raw("select * from EventApp_user inner join EventApp_user2 on EventApp_user.username=EventApp_user2.username2_id")
-    return render(request, 'enduser/testttable.html', context={'data': obj})
+    context = {
+        'posts': 'asdasdsa'
+        if request.user.is_authenticated else []
+    }
+    #obj=User2.objects.raw("select * from EventApp_user inner join EventApp_user2 on EventApp_user.username=EventApp_user2.username2_id")
+    return render(request, 'enduser/testttable.html', context)
+
+
+def logout_google(request):
+    auth_logout(request)
+    return render(request, 'enduser/index.html', {}, RequestContext(request))
 
 def log(request):
     if request.method == "POST":

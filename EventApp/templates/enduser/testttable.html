@@ -6,35 +6,56 @@
 
 </head>
 <body>
-<table border="5" cellpadding="20" align="center" >
-    <tr bgcolor="#faebd7">
-        <th>id</th>
-        <th>eMAIL</th>
-        <th>password</th>
-        <th>name</th>
-        <th>regno</th>
-        <th>collegeid</th>
-        <th>dept</th>
-        <th>courseid</th>
-        <th>contactno</th>
-        <th>yop</th>
-        <th>Event name</th>
-    </tr>
-    {% for item in data %}
-    <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.username}}</td>
-        <td>{{ item.password}}</td>
-        <td>{{ item.name}}</td>
-        <td>{{ item.regno}}</td>
-        <td>{{ item.collegeid}}</td>
-        <td>{{ item.departmentid}}</td>
-        <td>{{ item.courseid}}</td>
-        <td>{{ item.contactno}}</td>
-        <td>{{ item.yop}}</td>
-        <td>{{ item.eventname }}</td>
-    </tr>
-    {% endfor %}
-</table>
+ <div class="jumbotron">
+    <h1>My fake blog!</h1>
+    {% if user.is_authenticated %}
+      <p>Logged as {{ user.username }}</p>
+      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+        Login
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="container-fluid">
+  {% for post in posts %}
+    <div>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <p>Posted by {{ post.user.username }} | {{ post.date }}</p>
+    </div>
+  {% endfor %}
+  </div>
+{#<table border="5" cellpadding="20" align="center" >#}
+{#    <tr bgcolor="#faebd7">#}
+{#        <th>id</th>#}
+{#        <th>eMAIL</th>#}
+{#        <th>password</th>#}
+{#        <th>name</th>#}
+{#        <th>regno</th>#}
+{#        <th>collegeid</th>#}
+{#        <th>dept</th>#}
+{#        <th>courseid</th>#}
+{#        <th>contactno</th>#}
+{#        <th>yop</th>#}
+{#        <th>Event name</th>#}
+{#    </tr>#}
+{#    {% for item in data %}#}
+{#    <tr>#}
+{#        <td>{{ item.id }}</td>#}
+{#        <td>{{ item.username}}</td>#}
+{#        <td>{{ item.password}}</td>#}
+{#        <td>{{ item.name}}</td>#}
+{#        <td>{{ item.regno}}</td>#}
+{#        <td>{{ item.collegeid}}</td>#}
+{#        <td>{{ item.departmentid}}</td>#}
+{#        <td>{{ item.courseid}}</td>#}
+{#        <td>{{ item.contactno}}</td>#}
+{#        <td>{{ item.yop}}</td>#}
+{#        <td>{{ item.eventname }}</td>#}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#</table>#}
 </body>
 </html>
