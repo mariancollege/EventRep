@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+# from .models import Post
 
 gchoice=[
     ('male','Male'),
@@ -7,11 +8,11 @@ gchoice=[
     ('other','Other')
 ]
 
-# class Users(forms.ModelForm):
+
+# class PostForm(forms.ModelForm):
+#
 #     class Meta:
-#         model=User
-#         fields=["imagefile"]
-
-
+#         model = Post
+#         fields = ('title', 'text',)
 class ModelForm:
     pass

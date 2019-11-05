@@ -202,7 +202,9 @@
                                                     <label for="file-input" class=" form-control-label">Upload photo</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="photo" class="form-control-file">
+                                                    {% csrf_token %}
+                                                    <input type="file" id="photo" name="photo" class="form-control-file">
+                                                    <img src="{{ imgsrc }}">
                                                 </div>
                                             </div>
                                             <div class="row form-group">

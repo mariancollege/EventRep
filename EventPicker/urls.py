@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.template.context_processors import static
 from django.urls import path
 from  EventApp import views
@@ -29,7 +30,9 @@ urlpatterns = [
     path('event/', views.event, name='event'),
     path('addevent/', views.addevent, name='addevent'),
     path('editevent/', views.editevent, name='editevent'),
-    path('viewevent/', views.viewevent, name='viewevent'),
+    path('eevent/', views.eevent, name='eevent'),
     path('testttable/', views.testttable, name='testttable'),
+    path('home/', views.home, name='home'),
 ]
-# + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+urlpatterns+= static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()

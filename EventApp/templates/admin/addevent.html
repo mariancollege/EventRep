@@ -71,7 +71,7 @@
 
 
                         <li>
-                            <a href="/viewevent"><i class="fa fa-home"></i> Home</a>
+                            <a href="/home"><i class="fa fa-home"></i> Home</a>
                         </li>
 {#                        <li>#}
 {#                            <a href="/event"><i class=" fa fa-calendar"></i>#}
@@ -86,11 +86,12 @@
                                     <a href="/addevent">Add event</a>
                                 </li>
                                 <li>
-                                    <a href="/editevent">Edit event</a>
+                                    <a href="/eevent">View event</a>
                                 </li>
                                 <li>
-                                    <a href="/viewevent">View event</a>
+                                    <a href="/editevent">Edit event</a>
                                 </li>
+
 
                             </ul>
                         </li>
@@ -100,7 +101,7 @@
 {#                                Contact</a>#}
 {#                        </li>#}
                         <li>
-                            <a href="typo.html"><i class="fa fa-users"></i>
+                            <a href="/home"><i class="fa fa-users"></i>
 {#                                <i class="far fa-check-square"></i>#}
                                 Logout</a>
                         </li>
@@ -135,7 +136,7 @@
                                                     <label for="text-input" class=" form-control-label">Event name</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input name="eeventname" type="text" class="form-control cc-name valid">
+                                                    <input id="eeventname" name="eeventname" type="text" class="form-control cc-name valid">
                                                 </div>
                                             </div>
 
@@ -144,7 +145,7 @@
                                                     <label for="email-input" class=" form-control-label">Venue</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                   <input id="cc-name" name="evenue" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" type="text">
+                                                   <input id="evenue" name="evenue" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" type="text">
 
                                                 </div>
                                             </div>
@@ -155,7 +156,7 @@
                                                     <label for="email-input" class=" form-control-label">Date</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input id="cc-exp" name="edate" type="date" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
+                                                    <input id="edate" name="edate" type="date" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
                                                             data-val-cc-exp="Please enter a valid month and year" placeholder="DD / MM / YY"
                                                             autocomplete="cc-exp">
 
@@ -167,16 +168,40 @@
                                                     <label for="text-input" class=" form-control-label">Registartion fee</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input id="cc-name" name="eregfee" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" type="text">
+                                                    <input id="eregfee" name="eregfee" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" type="text">
                                                 </div>
                                             </div>
+
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Even category</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select id="ecategory" name="ecategory" class="form-control">
+                                                        <option selected="selected">Choose event type</option>
+                                                        <option value="s">Solo</option>
+                                                        <option value="g">Group</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">No of participants</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input id="eparti" name="eparti" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" type="text">
+                                                </div>
+                                            </div>
+
+
 
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Total Prize money</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input id="cc-name" name="etpm" class="form-control cc-name valid" aria-invalid="false" aria-describedby="cc-name-error" type="text">
+                                                    <input id="etpm" name="etpm" class="form-control cc-name valid" aria-invalid="false" aria-describedby="cc-name-error" type="text">
                                                 </div>
                                             </div>
 
@@ -234,7 +259,7 @@
                 <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Copyright © 2019 PG Department of computer Applications. All rights reserved. <a href="https://colorlib.com">MATRIX</a>.</p>
+                                    <p>Copyright © 2019 PG Department of computer Applications. All rights reserved.<a href="https://www.facebook.com/ignitemarian/?eid=ARD7OH16Kft2MzAtErhhVCa1Dz62zOSN1wwy8qUrby0zk2gGCEPH5lplm8YhjXfw8zWLPT3nyTvc3ZA3">MATRIX</a>.</p>
                                 </div>
                             </div>
                         </div>

@@ -2,11 +2,18 @@
 
 from django.shortcuts import render, render_to_response
 from EventApp.models import *
+# from .forms import PostForm
 from django.http import HttpResponse
 # Create your views here.
 
 def testttable(request):
     return render(request,'enduser/testttable.html', context={'data': User.objects.all()})
+
+
+def eevent(request):
+    return render(request,'admin/eevent.html')
+
+
 def log(request):
     if request.method == "POST":
         u = request.POST['txtemail']
@@ -23,21 +30,32 @@ def log(request):
 
 
 def index(request):
-    return render(request, 'enduser/index.html')
+    ob=Admin.objects.all()
+    return render(request, 'enduser/index.html',context={'data':ob})
 
 
 def forget(request):
     return render(request, 'enduser/forget-pass.html')
 
+def home(request):
+    ob=Admin.objects.all()
+    return render(request, 'admin/home.html', context={'data':ob})
 
 def event(request):
-    return render(request, 'enduser/event.html')
+    ob=Admin.objects.all()
+    ob1=departmentn.objects.all()
+    ob2=months.objects.all()
+    ob3=week.objects.all()
+    return render(request, 'enduser/event.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3})
 
 # gender= models.CharField(widget=models.RadioSelect(name))
-
+# def post_new(request):
+#     form = PostForm()
+#     return render(request, 'enduser/event.html', {'form': form})
 
 def regis(request):
     if request.method == "POST":
+
         email = request.POST['txtemail']
         password1 = request.POST['password']
         password2 = request.POST['txtpassword']
@@ -47,11 +65,16 @@ def regis(request):
         department=request.POST['department']
         coursee=request.POST['course']
         genderr=request.POST['option1']
-        # photoo=request.POST['photo']
+        p=request.FILES['photo']
+        img = User(profilepic=p)
+        img.save()
+
         contacto=request.POST['contactno']
         yop=request.POST['yop']
+
         if password1 == password2:
             User.objects.get_or_create(username=email,password=password2,regno=uregno,gender=genderr,name=uname,collegeid=collegee,departmentid=department,courseid=coursee,contactno=int(contacto),yop=int(yop))
+
             return render_to_response('enduser/event.html',{'message':'Registration Successfull'})
         else:
             return render_to_response(request, 'enduser/registration.html',{'message':'Incorrect username or password'})
@@ -59,8 +82,10 @@ def regis(request):
 
 
 def addevent(request):
+
     if request.method == "POST":
-        eename=request.POST.get("eeventname",default='hh')
+
+        eename=request.POST.get("eeventname")
         eevenue=request.POST.get('evenue')
         eedate=request.POST.get('edate')
         eeregfee=request.POST.get('eregfee')
@@ -68,15 +93,16 @@ def addevent(request):
         eedepartment=request.POST.get('edepartment')
         eedescreption=request.POST.get('edescreption')
         eebrochure=request.POST.get('ebrochure')
-        Admin.objects.get_or_create(eventname=eename,venue=eevenue,ddate=eedate,regfee=eeregfee,tpm=eetpm,department=eedepartment,descreption=eedescreption,brochure=eebrochure)
-        return render(request,'admin/viewevent.html')
-    # else:
-    #     return render_to_response(request, 'admin/addevent',{'messge':'Some fields are missing'})
+        ecat=request.POST.get('ecategory')
+        nop=request.POST.get('eparti')
+        # Admin.objects.get_or_create(eventname=eename, venue=eevenue)
+
+        Admin.objects.get_or_create(eventname=eename,venue=eevenue,ddate=eedate,regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop)
+        return render(request, 'admin/templates/home.html')
+
     return render(request, 'admin/addevent.html')
 
 def editevent(request):
-    return render(request, 'admin/editevent.html')
+    ob=Admin.objects.all()
+    return render(request, 'admin/editevent.html',context={'data':ob})
 
-
-def viewevent(request):
-    return render(request, 'admin/viewevent.html')
