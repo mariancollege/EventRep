@@ -47,7 +47,6 @@ body, html {
 </style>
     <!-- Required meta tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
@@ -129,8 +128,7 @@ body, html {
                                     <div class="overview-wrap">
                                     <h2 class="title-1"></h2>
                                 </div>
-{#                                    <button onclick="location.href='/log'" class="au-btn au-btn-icon au-btn--blue">#}
-{#                                        <i class="zmdi zmdi-plus"></i>Login</button>#}
+{#
                                 </div>
                             </div>
                         </div>
@@ -142,53 +140,39 @@ body, html {
             <!-- MAIN CONTENT-->
         <div class="hero-image">
             <img src="sarath.jpg">
-                                <div class="hero-text">
+            <div class="hero-text">
 {#                                    <img src="{% static 'images/sarath.jpg' %}">#}
-                                    <h1 style="font-size:40px"><font color="white">Are You A Talent Person</font></h1>
-                                     <p>We provide the bset platform</p>
-                                    <button onclick="location.href='/log'">Register here</button>
-                                </div>
-                            </div>
+                <h1 style="font-size:40px"><font color="white">Are You A Talent Person</font></h1>
+                <p>We provide the bset platform</p>
+                <button onclick="location.href='/log'">Register here</button>
+            </div>
+        </div>
 
             <div class="main-content">
-                {% for item in data %}
                 <div class="section__content section__content--p30">
-                <div class="overview-wrap">
-                    <h2 class="title-1" >Recent programmes</h2>
-                </div>
-                    <div class="container-fluid">
-                        <div class="main-content">
-                             <div class="col-md-4">
+                    <div class="table-responsive m-b-40">
+                    <div class="row">
+                        {% for item in data %}
+                        <h2 class="title-1"></h2>
+                        <div class="col-md-4">
                                 <div class="card">
                                     <img class="card-img-top" src="{% static 'images/bg-title-01.jpg' %}" alt="Card image cap">
                                     <div class="card-body">
                                         <h4 class="card-title mb-3">{{item.eventname}}</h4>
                                         <p class="card-text">{{item.descreption}}</p>
                                     </div>
+
                                 </div>
                             </div>
-            </div>
-        </div>
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Upcoming programmes</h2>
-{#                                    <button class="au-btn au-btn-load js-load-btn">view more</button>#}
-                                </div>
-                            </div>
+                        {% endfor %}
+                    </div>
+                        <br>
+                        <br>
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Upcoming programmes</h2>
                         </div>
-                    <br>
-                        <div class="row">
-                                    <div class="col-md-12">
-                                        <!-- DATA TABLE-->
-                                        <div class="table-responsive m-b-40">
-                                            <table class="table table-borderless table-data3">
+                        <br>
+                                    <table class="table table-borderless table-data3">
                                                 <thead>
                                                     <tr>
                                                         <th>date</th>
@@ -200,6 +184,7 @@ body, html {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                {% for item in data %}
                                                     <tr >
                                                         <td>------</td>
                                                         <td>{{item.eventname}}</td>
@@ -209,30 +194,37 @@ body, html {
                                                         <td><button type="submit" onclick="location.href='/event'" class="btn btn-secondary btn-sm">View more</button></td>
 
                                                     </tr>
-
+                                                {% endfor %}
                                                 </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- END DATA TABLE                  -->
-                                    </div>
-                                </div>
-                    </div>
-                {% endfor %}
-                </div>
 
-            </div>
-        <div class="row" style="alignment: right">
-    <div class="col-md-12">
-        <div class="copyright">
-            <p>Copyright © 2019 PG Department of computer Applications. All rights reserved. <a href="https://colorlib.com">MATRIX</a>.</p>
-        </div>
-    </div>
-</div>
-            <!-- END MAIN CONTENT-->
+                                            </table>
+
+                                        </div>
+                <br>
+
+
+                                        <!-- END DATA TABLE
+
+
+
+
+
+
+
+
+
+
+            </-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
+            </div>
 
     </div>
+    <div class="col-md-12">
+                 <div class="copyright">
+                     <p>Copyright © 2019 PG Department of computer Applications. All rights reserved. <a href="https://www.facebook.com/ignitemarian/">MATRIX</a>.</p>
+                  </div>
+                 </div>
 
     <!-- Jquery JS-->
     <script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>

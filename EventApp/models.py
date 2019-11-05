@@ -32,11 +32,11 @@ class User(models.Model):
     # photo = models.ImageField(upload_to='media/')
     contactno = models.IntegerField()
     yop = models.IntegerField()
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.imagefile = None
-        self.url = None
+    #
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.imagefile = None
+    #     self.url = None
 
     def cache(self):
         if self.url and not self.photo:
