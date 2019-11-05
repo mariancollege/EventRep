@@ -7,17 +7,19 @@ from django.http import HttpResponse
 
 
 def testttable(request):
-<<<<<<< HEAD
     return render(request,'enduser/testttable.html', context={'data': User.objects.all()})
 
 
 def eevent(request):
-    return render(request,'admin/eevent.html')
-=======
+    ob = Admin.objects.all()
+    ob1 = departmentn.objects.all()
+    ob2 = months.objects.all()
+    ob3 = week.objects.all()
+    return render(request, 'admin/eevent.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3})
+
+def testttable(request):
     obj=User2.objects.raw("select * from EventApp_user inner join EventApp_user2 on EventApp_user.username=EventApp_user2.username2_id")
     return render(request, 'enduser/testttable.html', context={'data': obj})
->>>>>>> 298ed13f7d20e622c234eeda8b95ab7f60a70e48
-
 
 def log(request):
     if request.method == "POST":
@@ -70,19 +72,19 @@ def regis(request):
         department=request.POST['department']
         coursee=request.POST['course']
         genderr=request.POST['option1']
-        p=request.FILES['photo']
-        img = User(profilepic=p)
-        img.save()
 
         contacto=request.POST['contactno']
         yop=request.POST['yop']
 
         if password1 == password2:
-            User.objects.get_or_create(username=email,password=password2,regno=uregno,gender=genderr,name=uname,collegeid=collegee,departmentid=department,courseid=coursee,contactno=int(contacto),yop=int(yop))
-
-            return render_to_response('enduser/event.html',{'message':'Registration Successfull'})
+            if User.objects.all().filter(username=email).exists():
+                return render(request, 'enduser/registration.html', {'regmessage': 'Email already exist'})
+            else:
+                p = request.FILES['photo']
+                User.objects.get_or_create(username=email,password=password2,regno=uregno,gender=genderr,name=uname,collegeid=collegee,departmentid=department,courseid=coursee,contactno=int(contacto),yop=int(yop),profilepic=p)
+                return render_to_response('enduser/event.html',{'message':'Registration Successfull'})
         else:
-            return render_to_response(request, 'enduser/registration.html',{'message':'Incorrect username or password'})
+            return render(request, 'enduser/registration.html',{'regmessage':'Password Doesnt Match'})
     return render(request, 'enduser/registration.html')
 
 

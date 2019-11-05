@@ -114,36 +114,38 @@
             </header>
             <!-- MAIN CONTENT-->
             <div class="main-content">
+                <form method="GET">
                 {% for item in data %}
+
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-6">
-
-                            </div>
-                           <div class="table-data__tool">
+                            <div class="table-data__tool">
                                 <div class="table-data__tool-left">
                                     <div class="rs-select2--light rs-select2--md">
                                         <select class="js-select2" name="property">
                                             <option selected="selected">Departments</option>
-                                            <option value="">-----</option>
-                                            <option value="">MSW</option>
+                                            {% for item in data1 %}
+                                            <option value="">{{ item.cdept }}</option>
+                                                {% endfor %}
                                         </select>
                                         <div class="dropDownSelect2"></div>
                                     </div>
                                     <div class="rs-select2--light rs-select2--sm">
                                         <select class="js-select2" name="time">
                                             <option selected="selected">Months</option>
-                                            <option value="">Januvary</option>
-                                            <option value="">Februvary</option>
+                                            {% for item in data2 %}
+                                            <option value="">{{ item.mname }}</option>
+                                                {% endfor %}
                                         </select>
                                         <div class="dropDownSelect2"></div>
                                     </div>
                                     <div class="rs-select2--light rs-select2--sm">
                                         <select class="js-select2" name="time">
                                             <option selected="selected">Week</option>
-                                            <option value="">1st week</option>
-                                            <option value="">2nd week</option>
+                                            {% for item in data3 %}
+                                            <option value="">{{ item.wname }}</option>
+                                                {% endfor %}
                                         </select>
                                         <div class="dropDownSelect2"></div>
                                     </div>
@@ -153,7 +155,7 @@
                                     <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                                        Search</button>
                                     <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                        <button type="button" class="btn btn-outline-danger">Clear all filters</button>
+                                        <button type="button" class="btn btn-outline-danger" onclick="">Clear all filters</button>
 
                                         <div class="dropDownSelect2"></div>
                                     </div>
@@ -175,7 +177,7 @@
 
                                              <div class="card-body card-block">
                                                 <div class="table-responsive">
-                                                <form method="GET">
+{#                                                <form method="GET">#}
 
                                                      <table class="table table-top-campaign">
 
@@ -227,7 +229,7 @@
 {#                                                {% endfor %}#}
                                                      </table>
 
-                                                 </form>
+{#                                                 </form>#}
                                                 </div>
                                              </div>
 
@@ -249,7 +251,7 @@
                     </div>
                 </div>
             {% endfor %}
-
+             </form>
             </div>
             <!-- END MAIN CONTENT-->
         </div>

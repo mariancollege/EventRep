@@ -9,7 +9,7 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/eventDB.sqlite3</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="eventDB.sqlite3" uuid="46db0ef9-8138-430c-a4d0-d446e2210e08">
+    <data-source source="LOCAL" name="eventDB.sqlite3" uuid="854bc3f9-df71-4b88-ae2a-88e34b1f5117">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
