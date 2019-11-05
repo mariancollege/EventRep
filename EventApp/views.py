@@ -38,11 +38,11 @@ def log(request):
         p = request.POST['txtpassword']
         if User.objects.all().filter(username=u).filter(password=p).exists():
 
-            return render_to_response('enduser/event.html', {'loginmessage': ' '})
+            return render_to_response('enduser/index.html', {'loginmessage': ' '})
         else:
             return render(request, 'enduser/log.html', context={'loginmessage': 'Incorrect Email or Password!'})
-    if request.method == "GET":
-        return render_to_response('enduser/log.html', {'loginmessage': ' '})
+    # if request.method == "GET":
+    #     return render_to_response('enduser/log.html', {'loginmessage': ' '})
     return render_to_response('enduser/log.html', {'loginmessage': ' '})
 
 

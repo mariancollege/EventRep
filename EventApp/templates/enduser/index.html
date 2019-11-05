@@ -92,7 +92,7 @@ body, html {
                     <ul class="list-unstyled navbar__list">
 
                         <li>
-                            <a href="/"><i class="fa fa-home"></i> Home</a>
+                            <a href="/index"><i class="fa fa-home"></i> Home</a>
                         </li>
                         <li>
                             <a href="/event"><i class=" fa fa-calendar"></i>
@@ -144,7 +144,7 @@ body, html {
 {#                                    <img src="{% static 'images/sarath.jpg' %}">#}
                 <h1 style="font-size:40px"><font color="white">Are You A Talent Person</font></h1>
                 <p>We provide the bset platform</p>
-                <button onclick="location.href='/log'">Register here</button>
+{#                <button onclick="location.href='/log'">Register here</button>#}
             </div>
         </div>
 
@@ -186,7 +186,7 @@ body, html {
                                                 <tbody>
                                                 {% for item in data %}
                                                     <tr >
-                                                        <td>------</td>
+                                                        <td>{{item.edate}}</td>
                                                         <td>{{item.eventname}}</td>
                                                         <td>{{item.venue}}</td>
                                                         <td class="process">{{item.tpm}}  Worth</td>
