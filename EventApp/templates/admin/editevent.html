@@ -142,21 +142,21 @@
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <select id="ecategory" name="ecategory" class="form-control">
-                                                        <option selected="selected">Pick your event name</option>
+                                                        <option selected="selected" value="aaa">Pick your event name</option>
                                                         {% for item in data %}
-                                                        <option value="s">{{item.eventname}}</option>
-                                                            {% endfor %}
+                                                        <option onselect="{{ item.eventname }}">{{item.eventname}}</option>
+                                                        {% endfor %}
                                                     </select>
                                                 </div>
                                             </div>
-
 
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="email-input" class=" form-control-label">Venue</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                   <input id="evenue" name="evenue" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" type="text">
+
+                                                   <input value="{{ optobj }}" id="evenue" name="evenue" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" type="text">
 
                                                 </div>
                                             </div>

@@ -37,8 +37,13 @@ def log(request):
         u = request.POST['txtemail']
         p = request.POST['txtpassword']
         if User.objects.all().filter(username=u).filter(password=p).exists():
-
-            return render_to_response('enduser/index.html', {'loginmessage': ' '})
+            obj=User.objects.get(username=u)
+            if obj.usertype=='student':
+                return render(request,'enduser/index.html')
+            elif obj.usertype=='admin':
+                return render(request,'admin/home.html')
+            else:
+                return render(request,'enduser/log.html')
         else:
             return render(request, 'enduser/log.html', context={'loginmessage': 'Incorrect Email or Password!'})
     # if request.method == "GET":
@@ -119,8 +124,10 @@ def addevent(request):
     return render(request, 'admin/addevent.html')
 
 def editevent(request):
+    #opt=Admin.objects.get(eventname=option)
     ob=Admin.objects.all()
     return render(request, 'admin/editevent.html',context={'data':ob})
+
 
 def about(request):
     return render(request,'enduser/about.html')
