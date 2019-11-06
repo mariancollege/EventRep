@@ -13,11 +13,12 @@ def testttable(request):
 
 
 def eevent(request):
+    imgob = User.objects.get(username="admin@admin.com")
     ob = Admin.objects.all()
     ob1 = departmentn.objects.all()
     ob2 = months.objects.all()
     ob3 = week.objects.all()
-    return render(request, 'admin/eevent.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3})
+    return render(request, 'admin/eevent.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3,'imgdata':imgob.profilepic})
 
 def testttable(request):
     context = {
@@ -53,23 +54,28 @@ def log(request):
 
 
 def index(request):
+    imgob = User.objects.get(username="admin@admin.com")
     ob=Admin.objects.all()
-    return render(request, 'enduser/index.html',context={'data':ob})
+    return render(request, 'enduser/index.html',context={'data':ob,'imgdata':imgob.profilepic})
 
 
 def forget(request):
     return render(request, 'enduser/forget-pass.html')
 
 def home(request):
+    imgob = User.objects.get(username="admin@admin.com")
     ob=Admin.objects.all()
-    return render(request, 'admin/home.html', context={'data':ob})
+    ob1=User.objects.all()
+    ob2=User.objects.get(username="admin@admin.com")
+    return render(request, 'admin/home.html', context={'data':ob,'data1':ob1,'imgdata':imgob.profilepic})
 
 def event(request):
+    imgob=User.objects.get(username="admin@admin.com")
     ob=Admin.objects.all()
     ob1=departmentn.objects.all()
     ob2=months.objects.all()
     ob3=week.objects.all()
-    return render(request, 'enduser/event.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3})
+    return render(request, 'enduser/event.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3,'imgdata':imgob.profilepic})
 
 # gender= models.CharField(widget=models.RadioSelect(name))
 # def post_new(request):
@@ -104,6 +110,7 @@ def regis(request):
 
 
 def addevent(request):
+    imgob = User.objects.get(username="admin@admin.com")
 
     if request.method == "POST":
 
@@ -121,27 +128,31 @@ def addevent(request):
         Admin.objects.get_or_create(edate=eedate,eventname=eename,venue=eevenue,regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop,brochure=eebrochure)
         return render(request, 'admin/home.html')
 
-    return render(request, 'admin/addevent.html')
+    return render(request, 'admin/addevent.html',context={'imgdata':imgob.profilepic})
 
 def editevent(request):
-    #opt=Admin.objects.get(eventname=option)
+    imgob=User.objects.get(username="admin@admin.com")
     ob=Admin.objects.all()
-    return render(request, 'admin/editevent.html',context={'data':ob})
+    return render(request, 'admin/editevent.html',context={'data':ob,'imgdata':imgob.profilepic})
 
 
 def about(request):
-    return render(request,'enduser/about.html')
+    imgob=User.objects.get(username="admin@admin.com")
+    return render(request,'enduser/about.html',context={'imgdata':imgob.profilepic})
 
 def contact(request):
-    return render(request,'enduser/contact.html')
+    imgob=User.objects.get(username="admin@admin.com")
+    return render(request,'enduser/contact.html',context={'imgdata':imgob.profilepic})
 
 
 def candidate_view(request):
+    imgob = User.objects.get(username="admin@admin.com")
     ob=User.objects.all()
-    return render(request,'admin/candidate_view.html',context={'userdata':ob})
+    return render(request,'admin/candidate_view.html',context={'userdata':ob,'imgdata':imgob.profilepic})
 
 
 
 def eventpub(request):
-    return render(request,'enduser/eventpub.html')
+    imgob = User.objects.get(username="admin@admin.com")
+    return render(request,'enduser/eventpub.html',context={'imgdata':imgob.profilepic})
 

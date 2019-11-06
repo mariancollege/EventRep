@@ -41,6 +41,20 @@ body, html {
   cursor: pointer;
 }
 
+{#div.polaroid {#}
+{#  border: 10px;#}
+{#}#}
+{#img{#}
+{#    border-radius: 10%;#}
+{#}#}
+
+
+label1
+{
+  float: left;
+  width: 10em;
+  margin-right: 1em;
+}
 .hero-text button:hover {
   background-color: #555;
   color: white;
@@ -90,13 +104,14 @@ body, html {
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
+                    <div align="center">
+                                <img src="{{ imgdata.url }}" width="100" height="150" border="10" >
+                    </div>
+                    <div align="center">
+                        <label>Sarath Chandran</label>
+                    </div>
+
                     <ul class="list-unstyled navbar__list">
-
-
-
-
-
-
 
                         <li>
                             <a href="/home"><i class="fa fa-home"></i> Home</a>
@@ -147,17 +162,25 @@ body, html {
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
+
         <div class="page-container" >
             <!-- HEADER DESKTOP-->
             <header class="header-desktop" >
                 <div class="section__content section__content--p30" >
                     <div class="container-fluid" >
+{#                                            <h5 align="right">nj</h5>#}
                         <div class="header-wrap" >
-                            < <div class="col-md-12">
+
+                            <div class="col-md-12">
+                            <div align="right">
+                                <label>Email</label>
+                            </div>
 
                                 <div class="overview-wrap">
-                                    <div class="overview-wrap">
-                                    <h2 class="title-1"></h2>
+{#                                     <h2 align="right">ddd</h2>#}
+                                    <div class="overview-wrap" >
+{#                                    <h2 align="right">ddd</h2>#}
+
 {#                                </div>#}
 {#                                    <button onclick="location.href='/log'" class="au-btn au-btn-icon au-btn--blue">#}
 {#                                        <i class="zmdi zmdi-plus"></i>Login</button>#}
@@ -170,18 +193,11 @@ body, html {
                 </div>
             </header>
             <!-- MAIN CONTENT-->
-
-
-{#            <div class="hero-image">#}
-{#            <img src="sarath.jpg">#}
-{#                                <div class="hero-text">#}
-{#                                    <img src="{% static 'images/sarath.jpg' %}">#}
-{#                                    <h1 style="font-size:40px"><font color="white">Are You A Talent Person</font></h1>#}
-{#                                     <p>We provide the bset platform</p>#}
-{#                                    <button onclick="location.href='/log'">Register here</button>#}
-{#                                </div>#}
-{#                            </div>#}
             <div class="main-content">
+{#            <div align="center">#}
+{#                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5v-tzX4g-RizdowIFM2UKcFepPq1IS1aqcGURrf8YE8dcHBo2lw&s">#}
+{#            </div>#}
+
                 {% for item in data %}
 
                 <div class="section__content section__content--p30">
