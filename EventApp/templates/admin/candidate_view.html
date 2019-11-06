@@ -174,13 +174,13 @@ body, html {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                {% for item in data %}
+                                                {% for item in userdata %}
                                                     <tr >
-                                                        <td>------</td>
                                                         <td>{{item.id}}</td>
                                                         <td>{{item.name}}</td>
                                                         <td>{{item.gender}}</td>
                                                         <td >{{item.collegeid}}</td>
+                                                        <td >{{item.departmentid}}</td>
                                                         <td>{{ item.courseid }}</td>
                                                         <td>{{ item.contactno}}</td>
 {#                                                        <td><button type="submit" onclick="location.href='/event'" class="btn btn-secondary btn-sm">View more</button></td>#}

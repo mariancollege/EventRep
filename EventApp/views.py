@@ -104,17 +104,16 @@ def addevent(request):
 
         eename=request.POST.get("eeventname")
         eevenue=request.POST.get('evenue')
-        eedate=request.POST.get('edate')
+        eedate=request.POST.get('datetext')
         eeregfee=request.POST.get('eregfee')
         eetpm=request.POST.get('etpm')
         eedepartment=request.POST.get('edepartment')
         eedescreption=request.POST.get('edescreption')
-        # eebrochure=request.POST.get('ebrochure')
         ecat=request.POST.get('ecategory')
         nop=request.POST.get('eparti')
         # Admin.objects.get_or_create(eventname=eename, venue=eevenue)
-
-        Admin.objects.get_or_create(eventname=eename,venue=eevenue,edate=date.today(),regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop)
+        eebrochure = request.FILES['ebrochure']
+        Admin.objects.get_or_create(edate=eedate,eventname=eename,venue=eevenue,regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop,brochure=eebrochure)
         return render(request, 'admin/home.html')
 
     return render(request, 'admin/addevent.html')
@@ -129,8 +128,9 @@ def about(request):
 def contact(request):
     return render(request,'enduser/contact.html')
 
+
 def candidate_view(request):
     ob=User.objects.all()
-    return render(request,'admin/candidate_view.html',context={'data':ob})
+    return render(request,'admin/candidate_view.html',context={'userdata':ob})
 
 

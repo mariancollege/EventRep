@@ -33,7 +33,14 @@
 
     <!-- Main CSS-->
     <link href="{% static 'css/theme.css' %}" rel="stylesheet" media="all">
-
+                                                        <script>
+                                                            function gfg_Run() {
+                                                                var el_down = document.getElementById("edate").value;
+                                                                var inputF = document.getElementById("datetext");
+                                                                inputF.setAttribute('value', el_down);
+                                                                inputF.innerHTML = "Value = '"+inputF.value+"'";
+                                                            }
+                                                        </script>
 </head>
 
 <body class="animsition">
@@ -154,7 +161,8 @@
                                                     <label for="email-input" class=" form-control-label">Date</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input id="edate" name="edate" type="date" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration">
+                                                    <input  onchange="gfg_Run()" id="edate" name="edate" type="date" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration">
+                                                    <input id="datetext" name="datetext" type="text" hidden="hidden" >
 
                                                 </div>
                                             </div>
@@ -233,17 +241,17 @@
                                                     <input type="file" id="file-input" name="ebrochure" class="form-control-file">
                                                 </div>
                                             </div>
-
-                                        </form>
-                                    </div>
-                                    <div class="card-footer">
-                                        <form action="" method="post">
                                             <button type="submit" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-dot-circle-o"></i> Submit
                                              </button>
                                             <button type="reset" class="btn btn-danger btn-sm">
                                                  <i class="fa fa-ban"></i> Reset
                                              </button>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer">
+                                        <form action="" method="post">
+
                                         </form>
                                     </div>
                                 </div>

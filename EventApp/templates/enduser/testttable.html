@@ -5,28 +5,45 @@
     <title>Titletable</title>
 
 </head>
-<body>
- <div class="jumbotron">
-    <h1>My fake blog!</h1>
-    {% if user.is_authenticated %}
-      <p>Logged as {{ user.username }}</p>
-      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-    {% else %}
-      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
-        Login
-      </a>
-    {% endif %}
-  </div>
+<form method="POST">
+<input type="date" id="datep" name="datep" value="2018-07-22" onchange="gfg_Run()">
+    <input name="submit" type="button" value="submit">
+    <input id="datetext" name="datetext">
+    <script>
 
-  <div class="container-fluid">
-  {% for post in posts %}
-    <div>
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.content }}</p>
-      <p>Posted by {{ post.user.username }} | {{ post.date }}</p>
-    </div>
-  {% endfor %}
-  </div>
+
+        function gfg_Run() {
+            var el_down = document.getElementById("datep").value;
+            var inputF = document.getElementById("datetext");
+            inputF.setAttribute('value', el_down);
+            el_down.innerHTML =
+                   "Value = " + "'" + inputF.value + "'";
+        }
+    </script>
+
+</form>
+
+{# <div class="jumbotron">#}
+{#    <h1>My fake blog!</h1>#}
+{#    {% if user.is_authenticated %}#}
+{#      <p>Logged as {{ user.username }}</p>#}
+{#      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>#}
+{#    {% else %}#}
+{#      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">#}
+{#        Login#}
+{#      </a>#}
+{#    {% endif %}#}
+{#  </div>#}
+{##}
+{#  <div class="container-fluid">#}
+{#  {% for post in posts %}#}
+{#    <div>#}
+{#      <h2>{{ post.title }}</h2>#}
+{#      <p>{{ post.content }}</p>#}
+{#      <p>Posted by {{ post.user.username }} | {{ post.date }}</p>#}
+{#    </div>#}
+{#  {% endfor %}#}
+{#  </div>#}
 {#<table border="5" cellpadding="20" align="center" >#}
 {#    <tr bgcolor="#faebd7">#}
 {#        <th>id</th>#}
