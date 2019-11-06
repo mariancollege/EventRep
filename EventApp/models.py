@@ -23,7 +23,6 @@ class User(models.Model):
     gender = models.CharField(max_length=20)
     profilepic = models.ImageField(upload_to='profiles/',default='none',blank=True)
     contactno = models.IntegerField()
-    edate = models.DateField((date),default=date.today())
     yop = models.IntegerField(blank=True, null=True)
     usertype = models.TextField(default='student')
 
