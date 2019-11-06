@@ -7,18 +7,13 @@ from EventApp.models import *
 # from .forms import PostForm
 from django.http import HttpResponse
 
-
-def testttable(request):
-    return render(request,'enduser/testttable.html', context={'data': User.objects.all()})
-
-
 def eevent(request):
-    imgob = User.objects.get(username="admin@admin.com")
     ob = Admin.objects.all()
     ob1 = departmentn.objects.all()
     ob2 = months.objects.all()
     ob3 = week.objects.all()
-    return render(request, 'admin/eevent.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3,'imgdata':imgob.profilepic})
+    usersession=User.objects.get(username=(request.session['email']))
+    return render(request, 'admin/eevent.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3,'usersession':usersession})
 
 def testttable(request):
     context = {
@@ -26,7 +21,7 @@ def testttable(request):
         if request.user.is_authenticated else []
     }
     #obj=User2.objects.raw("select * from EventApp_user inner join EventApp_user2 on EventApp_user.username=EventApp_user2.username2_id")
-    return render(request, 'enduser/testttable.html', context)
+    return render(request, 'enduser/testttable.html', context={'msg':request.session['email']})
 
 
 def logout_google(request):
@@ -39,6 +34,7 @@ def log(request):
         p = request.POST['txtpassword']
         if User.objects.all().filter(username=u).filter(password=p).exists():
             obj=User.objects.get(username=u)
+            request.session['email']=u
             if obj.usertype=='student':
                 return render(request,'enduser/index.html')
             elif obj.usertype=='admin':
@@ -54,28 +50,27 @@ def log(request):
 
 
 def index(request):
-    imgob = User.objects.get(username="admin@admin.com")
+    usersession=User.objects.get(username=(request.session['email']))
     ob=Admin.objects.all()
-    return render(request, 'enduser/index.html',context={'data':ob,'imgdata':imgob.profilepic})
+    return render(request, 'enduser/index.html',context={'data':ob,'usersession':usersession})
 
 
 def forget(request):
     return render(request, 'enduser/forget-pass.html')
 
 def home(request):
-    imgob = User.objects.get(username="admin@admin.com")
+    usersession = User.objects.get(username=(request.session['email']))
     ob=Admin.objects.all()
     ob1=User.objects.all()
-    ob2=User.objects.get(username="admin@admin.com")
-    return render(request, 'admin/home.html', context={'data':ob,'data1':ob1,'imgdata':imgob.profilepic})
+    return render(request, 'admin/home.html', context={'data':ob,'data1':ob1,'usersession':usersession})
 
 def event(request):
-    imgob=User.objects.get(username="admin@admin.com")
+    usersession = User.objects.get(username=(request.session['email']))
     ob=Admin.objects.all()
     ob1=departmentn.objects.all()
     ob2=months.objects.all()
     ob3=week.objects.all()
-    return render(request, 'enduser/event.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3,'imgdata':imgob.profilepic})
+    return render(request, 'enduser/event.html', context={'data': ob,'data1':ob1,'data2':ob2,'data3':ob3,'usersession':usersession})
 
 # gender= models.CharField(widget=models.RadioSelect(name))
 # def post_new(request):
@@ -110,8 +105,7 @@ def regis(request):
 
 
 def addevent(request):
-    imgob = User.objects.get(username="admin@admin.com")
-
+    usersession = User.objects.get(username=(request.session['email']))
     if request.method == "POST":
 
         eename=request.POST.get("eeventname")
@@ -126,33 +120,33 @@ def addevent(request):
         # Admin.objects.get_or_create(eventname=eename, venue=eevenue)
         eebrochure = request.FILES['ebrochure']
         Admin.objects.get_or_create(edate=eedate,eventname=eename,venue=eevenue,regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop,brochure=eebrochure)
-        return render(request, 'admin/home.html')
+        return render(request, 'admin/home.html',context={'usersession':usersession})
 
-    return render(request, 'admin/addevent.html',context={'imgdata':imgob.profilepic})
+    return render(request, 'admin/addevent.html',context={'usersession':usersession})
 
 def editevent(request):
-    imgob=User.objects.get(username="admin@admin.com")
+    usersession = User.objects.get(username=(request.session['email']))
     ob=Admin.objects.all()
-    return render(request, 'admin/editevent.html',context={'data':ob,'imgdata':imgob.profilepic})
+    return render(request, 'admin/editevent.html',context={'data':ob,'usersession':usersession})
 
 
 def about(request):
-    imgob=User.objects.get(username="admin@admin.com")
-    return render(request,'enduser/about.html',context={'imgdata':imgob.profilepic})
+    usersession=User.objects.get(username=(request.session['email']))
+    return render(request,'enduser/about.html',context={'usersession':usersession})
 
 def contact(request):
-    imgob=User.objects.get(username="admin@admin.com")
-    return render(request,'enduser/contact.html',context={'imgdata':imgob.profilepic})
+    usersession=User.objects.get(username=(request.session['email']))
+    return render(request,'enduser/contact.html',context={'usersession':usersession})
 
 
 def candidate_view(request):
-    imgob = User.objects.get(username="admin@admin.com")
+    usersession = User.objects.get(username=(request.session['email']))
     ob=User.objects.all()
-    return render(request,'admin/candidate_view.html',context={'userdata':ob,'imgdata':imgob.profilepic})
+    return render(request,'admin/candidate_view.html',context={'userdata':ob,'usersession':usersession})
 
 
 
 def eventpub(request):
-    imgob = User.objects.get(username="admin@admin.com")
-    return render(request,'enduser/eventpub.html',context={'imgdata':imgob.profilepic})
+    usersession=User.objects.get(username=(request.session['email']))
+    return render(request,'enduser/eventpub.html',context={'usersession':usersession})
 
