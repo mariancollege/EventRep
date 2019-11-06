@@ -64,6 +64,7 @@ def home(request):
     ob1=User.objects.all()
     return render(request, 'admin/home.html', context={'data':ob,'data1':ob1,'usersession':usersession})
 
+
 def event(request):
     usersession = User.objects.get(username=(request.session['email']))
     ob=Admin.objects.all()

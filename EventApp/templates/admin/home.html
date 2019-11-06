@@ -59,8 +59,111 @@ label1
   background-color: #555;
   color: white;
 }
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 900px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 2s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+        div.ex1 {
+            width: 500px;
+            max-height: 250px;
+            margin: auto;
+            border: 3px solid #73AD21;
+
+
+        }
+        div.innerbox
+{
+   width:250px; /* or whatever width you want. */
+   max-width:250px; /* or whatever width you want. */
+   display: inline-block;
+}
+.image-container img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+        imggg{
+left: 50%;
+position: absolute;
+top: 50%;
+-ms-transform: translate(-50%, -50%);
+-webkit-transform: translate(-50%, -50%);
+-moz-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+max-width: 100%;
+}
+
 </style>
     <!-- Required meta tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -194,10 +297,38 @@ label1
             </header>
             <!-- MAIN CONTENT-->
             <div class="main-content">
-{#            <div align="center">#}
-{#                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5v-tzX4g-RizdowIFM2UKcFepPq1IS1aqcGURrf8YE8dcHBo2lw&s">#}
-{#            </div>#}
+            <div>
 
+
+
+            <div class="ex1" align="center">
+
+<div class="mySlides fade" >
+  <div class="numbertext">1 / 3</div>
+  <img src="/profiles/brochures/5.jpg"  width="900" height="250">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="/profiles/brochures/8.jpg" width="900" height="250">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="/profiles/brochures/9.jpg" width="900" height="250">
+  <div class="text">Caption Three</div>
+</div>
+
+</div>
+            <div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+<br>
+             </div>
                 {% for item in data %}
 
                 <div class="section__content section__content--p30">
@@ -264,6 +395,28 @@ label1
 
     <!-- Main JS-->
     <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
 
 </body>
 
