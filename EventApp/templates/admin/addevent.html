@@ -210,7 +210,9 @@
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <select id="edepartment" name="edepartment" class="form-control">
-                                                        <option value="a">PG Department of Computer Applications</option>
+                                                        {% for item in pgdept %}
+                                                        <option value="{{ item.cdept }}">{{ item.cdept }}</option>
+                                                        {% endfor %}
                                                     </select>
                                                 </div>
                                             </div>

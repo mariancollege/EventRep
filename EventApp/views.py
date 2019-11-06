@@ -36,9 +36,9 @@ def log(request):
             obj=User.objects.get(username=u)
             request.session['email']=u
             if obj.usertype=='student':
-                return render(request,'enduser/index.html')
+                return index(request)
             elif obj.usertype=='admin':
-                return render(request,'admin/home.html')
+                return home(request)
             else:
                 return render(request,'enduser/log.html')
         else:
@@ -106,6 +106,7 @@ def regis(request):
 
 
 def addevent(request):
+    pgdept=departmentn.objects.all()
     usersession = User.objects.get(username=(request.session['email']))
     if request.method == "POST":
 
@@ -118,12 +119,11 @@ def addevent(request):
         eedescreption=request.POST.get('edescreption')
         ecat=request.POST.get('ecategory')
         nop=request.POST.get('eparti')
-        # Admin.objects.get_or_create(eventname=eename, venue=eevenue)
         eebrochure = request.FILES['ebrochure']
         Admin.objects.get_or_create(edate=eedate,eventname=eename,venue=eevenue,regfee=eeregfee,tpm=eetpm,ddepartment=eedepartment,descreption=eedescreption,eventcategory=ecat ,parti=nop,brochure=eebrochure)
-        return render(request, 'admin/home.html',context={'usersession':usersession})
+        return render(request, 'admin/home.html',context={'usersession':usersession,'pgdept':pgdept})
 
-    return render(request, 'admin/addevent.html',context={'usersession':usersession})
+    return render(request, 'admin/addevent.html',context={'usersession':usersession,'pgdept':pgdept})
 
 def editevent(request):
     usersession = User.objects.get(username=(request.session['email']))
