@@ -141,3 +141,7 @@ def candidate_view(request):
     return render(request,'admin/candidate_view.html',context={'userdata':ob})
 
 
+
+def eventpub(request):
+    return render(request,'enduser/eventpub.html')
+

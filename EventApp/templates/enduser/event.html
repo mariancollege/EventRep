@@ -43,7 +43,7 @@
 -- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <label style="font-size: xx-large">EventPicker</label>
+                <label style="font-size: xx-large">EventPublisher</label>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -67,6 +67,11 @@
 {#                                <i class="far fa-check-square"></i>#}
                                 About Us</a>
                         </li>
+                        <li>
+                            <a href="/"><i class="fa fa-users"></i>
+{#                                <i class="far fa-check-square"></i>#}
+                                Log out</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -78,21 +83,23 @@
             <!-- HEADER DESKTOP-->
             <header class="header-desktop" >
                 <div class="section__content section__content--p30" >
+                </div>
                     <div class="container-fluid" >
+
                         <div class="header-wrap" >
                             < <div class="col-md-12">
-
-                                <div class="overview-wrap">
-                                    <div class="overview-wrap">
-                                    <h2 class="title-1"></h2>
+{#                                <div class="overview-wrap">#}
+{#                                    <div class="overview-wrap">#}
+{#                                    <h2 class="title-1"></h2>#}
 {#                                </div>#}
 {#                                    <button onclick="location.href='/log'" class="au-btn au-btn-icon au-btn--blue">#}
 {#                                        <i class="zmdi zmdi-plus"></i>Register</button>#}
 {#                                </div>#}
-                            </div>
-                        </div>
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                 </div>
+                    </div>
             </header>
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -105,53 +112,53 @@
                             <div class="col-lg-6">
 
                             </div>
-                           <div class="table-data__tool">
-                                <div class="table-data__tool-left">
-                                    <div class="rs-select2--light rs-select2--md">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">Departments</option>
-                                            {% for item in data1 %}
-                                            <option value="">{{ item.cdept }}</option>
-                                                {% endfor %}
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Months</option>
-                                            {% for item in data2 %}
-                                            <option value="">{{ item.mname }}</option>
-                                                {% endfor %}
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Week</option>
-                                            {% for item in data3 %}
-                                            <option value="">{{ item.wname }}</option>
-                                                {% endfor %}
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-
-                                </div>
-                                <div class="table-data__tool-right">
-                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                       Search</button>
-                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                        <button type="button" class="btn btn-outline-danger" onclick="">Clear all filters</button>
-
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </div>
-                            </div>
+{#                           <div class="table-data__tool">#}
+{#                                <div class="table-data__tool-left">#}
+{#                                    <div class="rs-select2--light rs-select2--md">#}
+{#                                        <select class="js-select2" name="property">#}
+{#                                            <option selected="selected">Departments</option>#}
+{#                                            {% for item in data1 %}#}
+{#                                            <option value="">{{ item.cdept }}</option>#}
+{#                                                {% endfor %}#}
+{#                                        </select>#}
+{#                                        <div class="dropDownSelect2"></div>#}
+{#                                    </div>#}
+{#                                    <div class="rs-select2--light rs-select2--sm">#}
+{#                                        <select class="js-select2" name="time">#}
+{#                                            <option selected="selected">Months</option>#}
+{#                                            {% for item in data2 %}#}
+{#                                            <option value="">{{ item.mname }}</option>#}
+{#                                                {% endfor %}#}
+{#                                        </select>#}
+{#                                        <div class="dropDownSelect2"></div>#}
+{#                                    </div>#}
+{#                                    <div class="rs-select2--light rs-select2--sm">#}
+{#                                        <select class="js-select2" name="time">#}
+{#                                            <option selected="selected">Week</option>#}
+{#                                            {% for item in data3 %}#}
+{#                                            <option value="">{{ item.wname }}</option>#}
+{#                                                {% endfor %}#}
+{#                                        </select>#}
+{#                                        <div class="dropDownSelect2"></div>#}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="table-data__tool-right">#}
+{#                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">#}
+{#                                       Search</button>#}
+{#                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">#}
+{#                                        <button type="button" class="btn btn-outline-danger" onclick="">Clear all filters</button>#}
+{##}
+{#                                        <div class="dropDownSelect2"></div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
 
                         {% for item in data %}
                             <div class="au-card m-b-30">
 
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">{{item.eventid}}</h3>
+                                        <h3 class="title-2 m-b-40">{{item.eventname}}</h3>
                                          <div class="card">
                                             <img class="card-img-top" src="{{ item.brochure.url }}" alt="Card image cap">
                                              <div class="card-body">
@@ -165,36 +172,36 @@
                                                      <table class="table table-top-campaign">
 
                                                             <tr>
-                                                                 <td>1. Event name</td>
-                                                                 <td>{{item.eventid}}</td>
+                                                                 <td>Event name</td>
+                                                                 <td>{{item.eventname}}</td>
                                                             </tr>
 
                                                          <tr>
-                                                    <td>2. Venue</td>
-                                                    <td>{{item.eventname}}</td>
+                                                    <td>Venue</td>
+                                                    <td>{{item.venue}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>3. Date</td>
+                                                    <td>Date</td>
                                                     <td>{{ item.edate }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>4.Event type</td>
+                                                    <td>Event type</td>
                                                     <td>{{item.eventcategory}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>5.No of participants</td>
+                                                    <td>No of participants</td>
                                                     <td>{{item.parti}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>6. Registration fee</td>
+                                                    <td>Registration fee</td>
                                                     <td>{{item.regfee}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>7. Prize money</td>
+                                                    <td>Prize money</td>
                                                     <td>{{item.tpm}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>8. Organaized by</td>
+                                                    <td>Organaized by</td>
                                                     <td>{{item.ddepartment}}</td>
                                                 </tr>
                                                      </table>

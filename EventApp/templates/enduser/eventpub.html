@@ -40,7 +40,8 @@
 <body class="animsition">
     <div class="page-wrapper">
 
-<aside class="menu-sidebar d-none d-lg-block">
+-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <label style="font-size: xx-large">EventPublisher</label>
             </div>
@@ -48,47 +49,28 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
 
-
-
-
-
-
-
                         <li>
-                            <a href="/home"><i class="fa fa-home"></i> Home</a>
+                            <a href="/index"><i class="fa fa-home"></i> Home</a>
                         </li>
-{#                        <li>#}
-{#                            <a href="/event"><i class=" fa fa-calendar"></i>#}
+                        <li>
+                            <a href="/event"><i class=" fa fa-calendar"></i>
 {#                                <i class="fas fa-chart-bar"></i>#}
-{#                                Events</a>#}
-{#                        </li>#}
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-calendar"></i>Event</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="/addevent">Add event</a>
-                                </li>
-                                <li>
-                                    <a href="/eevent">View event</a>
-                                </li>
-{#                                <li>#}
-{#                                    <a href="/editevent">Edit event</a>#}
-{#                                </li>#}
-
-
-                            </ul>
+                                Events</a>
                         </li>
-
-
                         <li>
-                            <a href="/home"><i class="fa fa-users"></i>
+                            <a href="/contact"><i class="fa fa-phone"></i>
 {#                                <i class="far fa-check-square"></i>#}
-                                Logout</a>
+                                Contact</a>
                         </li>
-
                         <li>
-                            <a href="/candidate_view">View candidates</a>
+                            <a href="/about"><i class="fa fa-users"></i>
+{#                                <i class="far fa-check-square"></i>#}
+                                About Us</a>
+                        </li>
+                        <li>
+                            <a href="/"><i class="fa fa-users"></i>
+{#                                <i class="far fa-check-square"></i>#}
+                                Log out</a>
                         </li>
                     </ul>
                 </nav>
@@ -108,94 +90,65 @@
                                 <div class="overview-wrap">
                                     <div class="overview-wrap">
                                     <h2 class="title-1"></h2>
-                                </div>
+{#                                </div>#}
 {#                                    <button onclick="location.href='/log'" class="au-btn au-btn-icon au-btn--blue">#}
 {#                                        <i class="zmdi zmdi-plus"></i>Register</button>#}
-                                </div>
+{#                                </div>#}
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-            <!-- MAIN CONTENT-->
+
             <div class="main-content">
-                <form method="GET">
-
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-
-                        {% for item in data %}
-                            <div class="au-card m-b-30">
-
+                 <div class="section__content section__content--p30">
+             <form method="GET">
+            <div class="au-card m-b-30">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">{{item.eventname}}</h3>
                                          <div class="card">
-                                            <img class="card-img-top" src="{{ item.brochure.url }}" alt="Card image cap">
-                                             <div class="card-body">
-                                                 <p class="card-text">{{item.descreption}}</p>
-                                             </div>
-
+                                         <div class="card-body">
+                                                 <h4 class="card-title mb-3">Publish your events</h4>
+                                                 <p class="card-text">PG Department of computer Applications, Marian college Kuttikanam - MATRIX</p>
+                                                <p>
+                                                    To join with us contact our administrator
+                                                </p>
+                                         </div>
                                              <div class="card-body card-block">
                                                 <div class="table-responsive">
+                                                      <form method="POST" action={% url 'contact' %}>
 
                                                      <table class="table table-top-campaign">
 
+
                                                             <tr>
-                                                                 <td>Event name</td>
-                                                                 <td>{{item.eventname}}</td>
+                                                                <td></td>
+{#                                                                {% for item in data %}#}
+                                                                 <td>Associate professor : ROBINS A KATTOOR</td>
+{#                                                                {% endfor %}#}
                                                             </tr>
 
                                                          <tr>
-                                                    <td>Venue</td>
-                                                    <td>{{item.venue}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Date</td>
-                                                    <td>{{item.edate}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Event type</td>
-                                                    <td>{{item.eventcategory}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>No of participants</td>
-                                                    <td>{{item.parti}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Registration fee</td>
-                                                    <td>{{item.regfee}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Prize money</td>
-                                                    <td>{{item.tpm}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Organaized by</td>
-                                                    <td>{{item.ddepartment}}</td>
-                                                </tr>
+                                                             <td></td>
+                                                             <td>Contact no: 9447940905</td>
+                                                         </tr>
+
+{#                                                         </tbody>#}
+
+
+{#                                                {% endfor %}#}
                                                      </table>
 
+                                                </form>
                                                 </div>
                                              </div>
 
 
                                          </div>
-
                                     </div>
-{#                                <a href="editevent.html">#}
-{#                                <button onclick="location.href='/editevent'" class="au-btn au-btn-icon au-btn--green au-btn--small">#}
-{#                                        Edit</button>#}
-{#                                </a>#}
+
                                 </div>
-
-                        </div>
- {% endfor %}
-                    </div>
-                </form>
-            <br>
-                </div>
-
-            <div class="row">
+             </form>
+                <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
                                     <p>Copyright © 2019 PG Department of computer Applications. All rights reserved.<a href="https://www.facebook.com/ignitemarian/?eid=ARD7OH16Kft2MzAtErhhVCa1Dz62zOSN1wwy8qUrby0zk2gGCEPH5lplm8YhjXfw8zWLPT3nyTvc3ZA3">MATRIX</a>.</p>
@@ -203,11 +156,12 @@
                             </div>
                         </div>
             </div>
-            <!-- END MAIN CONTENT-->
-        </div>
-        <!-- END PAGE CONTAINER-->
 
-    </div>
+
+</div>
+        </div>
+
+
 
     <!-- Jquery JS-->
     <script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>

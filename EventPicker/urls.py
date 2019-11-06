@@ -39,7 +39,8 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
-    path('candidate_view', views.candidate_view, name='candidate_view'),
+    path('candidate_view/', views.candidate_view, name='candidate_view'),
+    path('eventpub/',views.eventpub, name='eventpub')
 ]
 urlpatterns+= static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 urlpatterns+= static(settings.MEDIA_URL_BROCHURES, document_root= settings.MEDIA_ROOT)
