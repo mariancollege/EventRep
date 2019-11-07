@@ -160,6 +160,15 @@ transform: translate(-50%, -50%);
 max-width: 100%;
 }
 
+  ddiv {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
+
 </style>
     <!-- Required meta tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -250,7 +259,7 @@ max-width: 100%;
                         </li>
 
                         <li>
-                            <a href="/candidate_view">View_candidates</a>
+                            <a href="/candidate_view">Registerd Users</a>
                                 </li>
 
 {#                        <li>#}
@@ -295,40 +304,44 @@ max-width: 100%;
                     </div>
                 </div>
             </header>
+
             <!-- MAIN CONTENT-->
             <div class="main-content">
-            <div>
 
 
 
-            <div class="ex1" align="center">
-
-<div class="mySlides fade" >
-  <div class="numbertext">1 / 3</div>
-  <img src="/profiles/brochures/5.jpg"  width="900" height="250">
-  <div class="text">Caption Text</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="/profiles/brochures/8.jpg" width="900" height="250">
-  <div class="text">Caption Two</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="/profiles/brochures/9.jpg" width="900" height="250">
-  <div class="text">Caption Three</div>
-</div>
-
-</div>
-            <div style="text-align:center">
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
-<br>
-             </div>
+{#            <div>#}
+{##}
+{##}
+{##}
+{#            <div class="ex1" align="center">#}
+{##}
+{#<div class="mySlides fade" >#}
+{#  <div class="numbertext">1 / 3</div>#}
+{#  <img src="/profiles/brochures/5.jpg"  width="900" height="250">#}
+{#  <div class="text">Caption Text</div>#}
+{#</div>#}
+{##}
+{#<div class="mySlides fade">#}
+{#  <div class="numbertext">2 / 3</div>#}
+{#  <img src="/profiles/brochures/8.jpg" width="900" height="250">#}
+{#  <div class="text">Caption Two</div>#}
+{#</div>#}
+{##}
+{#<div class="mySlides fade">#}
+{#  <div class="numbertext">3 / 3</div>#}
+{#  <img src="/profiles/brochures/9.jpg" width="900" height="250">#}
+{#  <div class="text">Caption Three</div>#}
+{#</div>#}
+{##}
+{#</div>#}
+{#            <div style="text-align:center">#}
+{#  <span class="dot"></span>#}
+{#  <span class="dot"></span>#}
+{#  <span class="dot"></span>#}
+{#</div>#}
+{#<br>#}
+{#             </div>#}
                 {% for item in data %}
 
                 <div class="section__content section__content--p30">
@@ -396,27 +409,27 @@ max-width: 100%;
     <!-- Main JS-->
     <script src="{% static 'js/main.js' %}"></script>
 
-    <script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-</script>
+{#    <script>#}
+{#var slideIndex = 0;#}
+{#showSlides();#}
+{##}
+{#function showSlides() {#}
+{#  var i;#}
+{#  var slides = document.getElementsByClassName("mySlides");#}
+{#  var dots = document.getElementsByClassName("dot");#}
+{#  for (i = 0; i < slides.length; i++) {#}
+{#    slides[i].style.display = "none";#}
+{#  }#}
+{#  slideIndex++;#}
+{#  if (slideIndex > slides.length) {slideIndex = 1}#}
+{#  for (i = 0; i < dots.length; i++) {#}
+{#    dots[i].className = dots[i].className.replace(" active", "");#}
+{#  }#}
+{#  slides[slideIndex-1].style.display = "block";#}
+{#  dots[slideIndex-1].className += " active";#}
+{#  setTimeout(showSlides, 2000); // Change image every 2 seconds#}
+{#}#}
+{#</script>#}
 
 </body>
 
